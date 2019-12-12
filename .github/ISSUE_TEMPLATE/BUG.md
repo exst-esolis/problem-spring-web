@@ -1,6 +1,7 @@
 ---
-name: Bug report
+name: "\U0001F41EBug report"
 about: Create a report to help us improve
+labels: Bug
 ---
 
 <!--- Provide a general summary of the issue in the Title above -->

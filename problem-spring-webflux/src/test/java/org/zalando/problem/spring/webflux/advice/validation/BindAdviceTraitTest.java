@@ -1,6 +1,9 @@
 package org.zalando.problem.spring.webflux.advice.validation;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.MediaType;
 import org.zalando.problem.Status;
 import org.zalando.problem.spring.common.MediaTypes;
@@ -12,7 +15,19 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.startsWith;
 
+import java.util.Locale;
+
 final class BindAdviceTraitTest implements AdviceTraitTesting {
+
+    @BeforeEach
+    void setUp() {
+        LocaleContextHolder.setLocale(Locale.ENGLISH);
+    }
+
+    @AfterEach
+    void tearDown() {
+        LocaleContextHolder.resetLocaleContext();
+    }
 
     @Test
     void invalidRequestQueryParams() {
@@ -36,7 +51,7 @@ final class BindAdviceTraitTest implements AdviceTraitTesting {
     void invalidRequestBodyField() {
         ConstraintViolationProblem problem = webTestClient().post().uri("http://localhost/api/handler-invalid-body")
                 .contentType(MediaType.APPLICATION_JSON)
-                .syncBody("{\"name\":\"Jo\"}")
+                .bodyValue("{\"name\":\"Jo\"}")
                 .exchange()
                 .expectStatus().isBadRequest()
                 .expectHeader().contentType(MediaTypes.PROBLEM)
@@ -54,7 +69,7 @@ final class BindAdviceTraitTest implements AdviceTraitTesting {
     void invalidRequestBody() {
         ConstraintViolationProblem problem = webTestClient().post().uri("http://localhost/api/handler-invalid-body")
                 .contentType(MediaType.APPLICATION_JSON)
-                .syncBody("{\"name\":\"Bob\"}")
+                .bodyValue("{\"name\":\"Bob\"}")
                 .exchange()
                 .expectStatus().isBadRequest()
                 .expectHeader().contentType(MediaTypes.PROBLEM)
