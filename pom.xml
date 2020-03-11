@@ -50,14 +50,25 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 
-        <slf4j.version>1.7.29</slf4j.version>
-        <jackson.version>2.10.1</jackson.version>
-        <problem.version>0.23.0</problem.version>
-        <spring.version>5.2.2.RELEASE</spring.version>
-        <spring-security.version>5.2.1.RELEASE</spring-security.version>
-        <spring-boot.version>2.2.2.RELEASE</spring-boot.version>
-        <junit-jupiter.version>5.5.2</junit-jupiter.version>
+        <slf4j.version>1.7.30</slf4j.version>
+        <jackson.version>2.10.3</jackson.version>
+        <problem.version>0.24.0</problem.version>
+        <spring.version>5.2.4.RELEASE</spring.version>
+        <spring-security.version>5.3.0.RELEASE</spring-security.version>
+        <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
+        <junit-jupiter.version>5.6.0</junit-jupiter.version>
     </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <version>${spring.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>org.apiguardian</groupId>
@@ -83,7 +94,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.10</version>
+            <version>1.18.12</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -122,14 +133,14 @@
         <dependency>
             <groupId>net.jodah</groupId>
             <artifactId>failsafe</artifactId>
-            <version>2.3.1</version>
+            <version>2.3.3</version>
             <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>com.atlassian.oai</groupId>
             <artifactId>swagger-request-validator-springmvc</artifactId>
-            <version>2.8.1</version>
+            <version>2.9.0</version>
             <optional>true</optional>
             <exclusions>
                 <exclusion>
@@ -163,7 +174,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>28.1-jre</version>
+            <version>28.2-jre</version>
             <optional>true</optional>
         </dependency>
 
@@ -210,7 +221,7 @@
         <dependency>
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>6.1.0.Final</version>
+            <version>6.1.2.Final</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -222,7 +233,7 @@
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-el</artifactId>
-            <version>9.0.29</version>
+            <version>9.0.31</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -246,7 +257,7 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>3.2.0</version>
+            <version>3.3.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -279,7 +290,7 @@
             <plugin>
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
-                <version>5.2.4</version>
+                <version>5.3.0</version>
                 <executions>
                     <execution>
                         <goals>
@@ -435,7 +446,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
-                        <version>3.2.0</version>
+                        <version>3.2.1</version>
                         <executions>
                             <execution>
                                 <id>attach-sources</id>

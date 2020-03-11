@@ -1,12 +1,10 @@
 # Problems for Spring MVC and Spring WebFlux
 
 [![Stability: Sustained](https://masterminds.github.io/stability/sustained.svg)](https://masterminds.github.io/stability/sustained.html)
-[![Build Status](https://img.shields.io/travis/zalando/problem-spring-web/master.svg)](https://travis-ci.org/zalando/problem-spring-web)
+![Build Status](https://github.com/zalando/problem-spring-web/workflows/build/badge.svg)
 [![Coverage Status](https://img.shields.io/coveralls/zalando/problem-spring-web/master.svg)](https://coveralls.io/r/zalando/problem-spring-web)
 [![Code Quality](https://img.shields.io/codacy/grade/0236149bf46749b1a582f9fbbde2a4eb/master.svg)](https://www.codacy.com/app/whiskeysierra/problem-spring-web)
-[![Javadoc](http://javadoc.io/badge/org.zalando/problem-spring-web.svg)](http://www.javadoc.io/doc/org.zalando/problem-spring-web)
 [![Release](https://img.shields.io/github/release/zalando/problem-spring-web.svg)](https://github.com/zalando/problem-spring-web/releases)
-[![Maven Central](https://img.shields.io/maven-central/v/org.zalando/problem-spring-web.svg)](https://maven-badges.herokuapp.com/maven-central/org.zalando/problem-spring-web)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/zalando/problem-spring-web/master/LICENSE)
 
 *Problem Spring Web* is a set of libraries that makes it easy to produce
@@ -21,6 +19,8 @@ The way this library works is based on what we call *advice traits*. An advice t
 `@ExceptionHandler` implemented as a [default method](https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html)
 placed in a single method interface. Those advice traits can be combined freely and don't require to use a common base
 class for your [`@ControllerAdvice`](http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/ControllerAdvice.html).
+
+:mag_right: Please check out [Baeldung: A Guide to the Problem Spring Web Library](https://www.baeldung.com/problem-spring-web) for a detailed introduction!
 
 ## Features
 
@@ -39,13 +39,13 @@ class for your [`@ControllerAdvice`](http://docs.spring.io/spring/docs/current/j
 - Reactive, non-blocking runtime for [problem-spring-webflux](problem-spring-webflux)
 - Spring 5
   - Spring 4 (or Spring Boot 1.5) users may use version [0.23.0](https://github.com/zalando/problem-spring-web/releases/tag/0.23.0)
-- Spring Security 5
+- Spring Security 5 (optional)
+- Failsafe 2.3.3 (optional)
 
 ## Installation and Configuration
 
 - [Spring Web MVC](problem-spring-web)
 - [Spring WebFlux](problem-spring-webflux)
-
 
 ## Customization
 
@@ -233,6 +233,7 @@ more details, check the [contribution guidelines](.github/CONTRIBUTING.md).
 
 ## Credits and references
 
+- [Baeldung: A Guide to the Problem Spring Web Library](https://www.baeldung.com/problem-spring-web)
 - [Problem Details for HTTP APIs](http://tools.ietf.org/html/rfc7807)
 - [Problem library](https://github.com/zalando/problem)
 - [Exception Handling in Spring MVC](https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc#using-controlleradvice-classes)
